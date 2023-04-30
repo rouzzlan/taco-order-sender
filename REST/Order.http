@@ -11,8 +11,8 @@ Content-Type: application/json
     "state": "Antwerp"
   },
   "cCard": {
-    "ccNumber": 49498804,
+    "ccNumber": "5364965554644555",
     "ccExpiration": "10/10",
-    "cvv": 123
+    "cvv": 999
   }
 }

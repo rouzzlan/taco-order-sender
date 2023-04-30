@@ -1,6 +1,8 @@
 package com.falcontech.ordersender.model;
 
-public record Address(String street,
-                      String city,
-                      String state,
-                      String  zip) {}
+import javax.validation.constraints.NotBlank;
+
+public record Address(@NotBlank String street,
+                      @NotBlank String city,
+                      @NotBlank String state,
+                      @NotBlank String  zip) {}

@@ -1,6 +1,10 @@
 package com.falcontech.ordersender.model;
 
-public record Order(String name,
-                    String email,
-                    CCard cCard,
-                    Address address) {}
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+
+public record Order(
+    String name,
+    @Email(message = "not valid email") String email,
+    @Valid CCard cCard,
+    @Valid Address address) {}
