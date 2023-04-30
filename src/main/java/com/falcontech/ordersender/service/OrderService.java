@@ -5,8 +5,6 @@ import com.falcontech.ordersender.model.web.OrderSummary;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.util.UUID;
-
 @Service
 public class OrderService {
   public Mono<OrderSummary> submitToQue(Mono<Order> orderMono) {
