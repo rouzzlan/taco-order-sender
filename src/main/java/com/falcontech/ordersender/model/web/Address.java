@@ -1,4 +1,4 @@
-package com.falcontech.ordersender.model;
+package com.falcontech.ordersender.model.web;
 
 import javax.validation.constraints.NotBlank;
 
