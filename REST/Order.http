@@ -2,5 +2,17 @@ POST http://localhost:9003/order/
 Content-Type: application/json
 
 {
-  "id": "999"
+  "name": "myOrder",
+  "email": "me@home.com",
+  "address": {
+    "street": "Kerkstraat 123",
+    "city": "Hoboken",
+    "zip": "1929",
+    "state": "Antwerp"
+  },
+  "cCard": {
+    "ccNumber": 49498804,
+    "ccExpiration": "10/10",
+    "cvv": 123
+  }
 }
