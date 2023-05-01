@@ -21,13 +21,12 @@ public class RabbitOrderMessagingService implements OrderMessagingService {
 
   public void sendOrder(Order order) {
     rabbit.convertAndSend(
-        "tacocloud.order.queue",
+        "orderqueue",
         order,
         new MessagePostProcessor() {
           @Override
           public Message postProcessMessage(Message message) throws AmqpException {
             MessageProperties props = message.getMessageProperties();
-            props.setHeader("X_ORDER_SOURCE", "WEB");
             return message;
           }
         });
