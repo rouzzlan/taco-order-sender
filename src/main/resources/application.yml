@@ -1,8 +1,8 @@
 server:
   port: 9003
-#spring:
-#  rabbitmq:
-#    host: localhost
-#    port: 5673
-#    username: user
-#    password: pass
+spring:
+  rabbitmq:
+    host: docker-pool.localdomain
+    port: 5673
+    username: user
+    password: pass

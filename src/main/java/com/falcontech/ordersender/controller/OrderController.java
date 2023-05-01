@@ -22,6 +22,6 @@ public class OrderController {
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
   @ResponseStatus(HttpStatus.CREATED)
   public Mono<OrderSummary> postOrder(@Valid @RequestBody Mono<Order> newOrder) {
-    return orderService.submitToQue(newOrder);
+    return orderService.sendOrder(newOrder);
   }
 }
