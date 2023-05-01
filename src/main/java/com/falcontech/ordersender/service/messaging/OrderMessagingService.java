@@ -1,6 +1,6 @@
 package com.falcontech.ordersender.service.messaging;
 
-import com.falcontech.ordersender.model.que.Order;
+import com.falcontech.ordersender.model.queue.Order;
 
 public interface OrderMessagingService {
 

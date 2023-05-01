@@ -18,7 +18,7 @@ public class OrderService {
     return orderMono
         .map(
             order -> {
-              com.falcontech.ordersender.model.que.Order _order = new com.falcontech.ordersender.model.que.Order(order);
+              com.falcontech.ordersender.model.queue.Order _order = new com.falcontech.ordersender.model.queue.Order(order);
               orderMessagingService.sendOrder(_order);
               return _order.orderSummary();
             })

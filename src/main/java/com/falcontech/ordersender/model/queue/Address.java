@@ -1,4 +1,4 @@
-package com.falcontech.ordersender.model.que;
+package com.falcontech.ordersender.model.queue;
 
 import lombok.Getter;
 

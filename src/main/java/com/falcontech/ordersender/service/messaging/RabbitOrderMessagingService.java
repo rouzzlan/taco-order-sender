@@ -1,6 +1,6 @@
 package com.falcontech.ordersender.service.messaging;
 
-import com.falcontech.ordersender.model.que.Order;
+import com.falcontech.ordersender.model.queue.Order;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessagePostProcessor;
