@@ -5,4 +5,11 @@ server:
 #    host: docker-pool.localdomain
 #    port: 5673
 #    username: user
+orders:
+  queue:
+    host: docker-pool.localdomain
+    port: 5673
+    passwd: pass
+    user: user
+    queue-name: orderqueue
 #    password: pass

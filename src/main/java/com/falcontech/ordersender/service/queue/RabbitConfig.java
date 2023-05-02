@@ -1,5 +1,6 @@
 package com.falcontech.ordersender.service.queue;
 
+import com.falcontech.ordersender.config.properties.QueueProps;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import org.springframework.context.annotation.Bean;
@@ -12,14 +13,19 @@ import reactor.rabbitmq.SenderOptions;
 
 @Configuration
 public class RabbitConfig {
+  private final QueueProps queueProps;
+
+  public RabbitConfig(QueueProps queueProps) {
+    this.queueProps = queueProps;
+  }
 
   @Bean
   Mono<Connection> connectionMono() {
     ConnectionFactory connectionFactory = new ConnectionFactory();
-    connectionFactory.setHost("docker-pool.localdomain");
-    connectionFactory.setPort(5673);
-    connectionFactory.setUsername("user");
-    connectionFactory.setPassword("pass");
+    connectionFactory.setHost(queueProps.getHost());
+    connectionFactory.setPort(queueProps.getPort());
+    connectionFactory.setUsername(queueProps.getUser());
+    connectionFactory.setPassword(queueProps.getPasswd());
     connectionFactory.useNio();
     return Mono.fromCallable(() -> connectionFactory.newConnection("reactor-rabbit")).cache();
   }
