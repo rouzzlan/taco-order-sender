@@ -1,10 +1,5 @@
 server:
   port: 9003
-#spring:
-#  rabbitmq:
-#    host: docker-pool.localdomain
-#    port: 5673
-#    username: user
 orders:
   queue:
     host: docker-pool.localdomain
@@ -12,4 +7,3 @@ orders:
     passwd: pass
     user: user
     queue-name: orderqueue
-#    password: pass
