@@ -2,10 +2,8 @@ package com.falcontech.ordersender.model.queue;
 
 import lombok.Getter;
 
-import java.io.Serializable;
-
 @Getter
-public class Address implements Serializable {
+public class Address {
   private final String street;
   private final String city;
   private final String state;
