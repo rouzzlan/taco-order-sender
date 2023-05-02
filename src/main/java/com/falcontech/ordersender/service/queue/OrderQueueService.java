@@ -1,5 +1,6 @@
 package com.falcontech.ordersender.service.queue;
 
+import com.falcontech.ordersender.config.properties.QueueProps;
 import com.falcontech.ordersender.model.queue.Order;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,13 +16,14 @@ import reactor.rabbitmq.Sender;
 public class OrderQueueService {
 
   final Sender sender;
+  private final QueueProps queueProps;
 
-  OrderQueueService(Sender sender) {
+  OrderQueueService(Sender sender, QueueProps queueProps) {
     this.sender = sender;
+      this.queueProps = queueProps;
   }
 
-  // Name of our Queue
-  private static final String QUEUE = "orderqueue";
+  // Name of our Queu
   // slf4j logger
 
   /**
@@ -49,11 +51,11 @@ public class OrderQueueService {
             byte[] orderSerialized = SerializationUtils.serialize(json);
             // Outbound Message that will be sent by the Sender
             Flux<OutboundMessage> outbound =
-                Flux.just(new OutboundMessage("", QUEUE, orderSerialized));
+                Flux.just(new OutboundMessage("", queueProps.getQueueName(), orderSerialized));
 
             // Declare the queue then send the flux of messages.
             sender
-                .declareQueue(QueueSpecification.queue(QUEUE))
+                .declareQueue(QueueSpecification.queue(queueProps.getQueueName()))
                 .thenMany(sender.sendWithPublishConfirms(outbound))
                 .subscribe(
                     m -> {
