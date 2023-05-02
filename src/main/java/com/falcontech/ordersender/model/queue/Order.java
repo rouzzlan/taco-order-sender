@@ -1,11 +1,13 @@
 package com.falcontech.ordersender.model.queue;
 
 import com.falcontech.ordersender.model.web.OrderSummary;
+
+import java.io.Serializable;
 import java.util.UUID;
 import lombok.Getter;
 
 @Getter
-public class Order {
+public class Order implements Serializable {
   private final UUID uuid = UUID.randomUUID();
   private final String name;
   private final String email;

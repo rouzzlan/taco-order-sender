@@ -2,27 +2,21 @@ package com.falcontech.ordersender.service;
 
 import com.falcontech.ordersender.model.web.Order;
 import com.falcontech.ordersender.model.web.OrderSummary;
-import com.falcontech.ordersender.service.messaging.OrderMessagingService;
+import com.falcontech.ordersender.service.queue.OrderQueueService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
 public class OrderService {
-  private final OrderMessagingService orderMessagingService;
+  private final OrderQueueService orderQueueService;
 
-  public OrderService(OrderMessagingService orderMessagingService) {
-    this.orderMessagingService = orderMessagingService;
+  public OrderService(OrderQueueService orderQueueService) {
+    this.orderQueueService = orderQueueService;
   }
 
   public Mono<OrderSummary> sendOrder(Mono<Order> orderMono) {
-    return orderMono
-        .map(
-            order -> {
-              com.falcontech.ordersender.model.queue.Order _order = new com.falcontech.ordersender.model.queue.Order(order);
-              orderMessagingService.sendOrder(_order);
-              return _order.orderSummary();
-            })
-        .map(orderSummary -> orderSummary);
+    return orderQueueService
+        .createOrder(orderMono)
+        .map(com.falcontech.ordersender.model.queue.Order::orderSummary);
   }
-  
 }
