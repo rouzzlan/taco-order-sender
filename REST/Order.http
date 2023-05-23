@@ -8,11 +8,13 @@ Content-Type: application/json
     "street": "Kerkstraat 123",
     "city": "Hoboken",
     "zip": "1929",
-    "state": "Antwerp"
+    "state": "Antwerp",
+    "country": "BE"
   },
   "cCard": {
-    "ccNumber": "5364965554644555",
-    "ccExpiration": "10/10",
+    "number": "5364965554644555",
+    "owner": "Rouslan Khayaouri",
+    "expiration": "10/10",
     "cvv": 999
   }
 }

@@ -11,7 +11,8 @@ public record CCard(
             regexp =
                 "^(?:4[0-9]{12}(?:[0-9]{3})?|(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12})$",
             message = "not valid credit card number")
-        String ccNumber,
+        String number,
     @Pattern(regexp = "^((0[1-9]|1[012])([- /.])(\\d\\d))$", message = "not valid expiration date")
-        String ccExpiration,
-    @Min(1) @Max(999) Integer cvv) {}
+        String expiration,
+    @Min(1) @Max(999) Integer cvv,
+    @NotBlank String owner) {}
