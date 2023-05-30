@@ -3,6 +3,7 @@ package com.falcontech.ordersender.controller;
 import com.falcontech.ordersender.controller.handler.OrderHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
@@ -27,7 +28,7 @@ public class RouterConfig {
     //    config.setAllowCredentials(true);
     config.addAllowedOrigin("*");
     config.addAllowedHeader("*");
-    config.addAllowedMethod("*");
+    config.addAllowedMethod(HttpMethod.POST);
 
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", config);
