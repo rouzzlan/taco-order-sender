@@ -26,7 +26,8 @@ public class RouterConfig {
     CorsConfiguration config = new CorsConfiguration();
     //    config.applyPermitDefaultValues()
     //    config.setAllowCredentials(true);
-    config.addAllowedOrigin("*");
+    config.addAllowedOrigin("http://localhost:4200");
+    config.addAllowedOrigin("http://taco-order.service:*");
     config.addAllowedHeader("*");
     config.addAllowedMethod(HttpMethod.POST);
 
