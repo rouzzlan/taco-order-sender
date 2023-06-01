@@ -7,3 +7,5 @@ orders:
     passwd: ${QPASSWD:pass}
     user: ${QUSR:user}
     queue-name: ${QNAME:orderqueue}
+app:
+  cors: ${CORS_ORIGIN:*}
