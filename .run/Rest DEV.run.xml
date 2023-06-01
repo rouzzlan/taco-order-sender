@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Rest DEV" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ACTIVE_PROFILES" value="rest-dev" />
+    <module name="order-sender.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.falcontech.ordersender.OrderSenderApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

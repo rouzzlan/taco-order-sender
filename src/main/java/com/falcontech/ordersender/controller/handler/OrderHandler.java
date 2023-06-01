@@ -2,7 +2,7 @@ package com.falcontech.ordersender.controller.handler;
 
 import com.falcontech.ordersender.model.web.Order;
 import com.falcontech.ordersender.model.web.OrderSummary;
-import com.falcontech.ordersender.service.OrderService;
+import com.falcontech.ordersender.service.IOrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -13,9 +13,9 @@ import reactor.core.publisher.Mono;
 @Service
 public class OrderHandler {
 
-  private final OrderService service;
+  private final IOrderService service;
 
-  public OrderHandler(OrderService service) {
+  public OrderHandler(IOrderService service) {
     this.service = service;
   }
 
